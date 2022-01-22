@@ -178,5 +178,6 @@ export interface utils {
 export default class Potrace {
   trace(file: string | Buffer | Jimp, options: any, cb: Function): void;
   posterize(file: string | Buffer | Jimp, options: any, cb: Function): void;
-  
+  Potrace: Potrace;
+  Posterizer: Posterizer;
 }
