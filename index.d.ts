@@ -175,7 +175,7 @@ export interface utils {
   tangent(p0: any, p1: any, p2: any, p3: any, q0: any, q1: any): number;
 }
 
-export default class Potrace {
+export default interface Potrace {
   trace(file: string | Buffer | Jimp, options: any, cb: Function): void;
   posterize(file: string | Buffer | Jimp, options: any, cb: Function): void;
   Potrace: Potrace;
