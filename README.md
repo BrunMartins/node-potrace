@@ -1,5 +1,5 @@
 # node-potrace
-A NodeJS-compatible, typescript typed fork of [node-potrace][node-potrace] which is in turn a nodejs compatible fork of [Potrace in JavaScript][potrace-by-kilobtye] with some additions, which is in turn a port of [the original Potrace][potrace] — a tool for tracing bitmaps.
+A NodeJS-compatible, typescript typed fork of [node-potrace](https://github.com/tooolbox/node-potrace) which is in turn a nodejs compatible fork of [Potrace in JavaScript][potrace-by-kilobtye] with some additions, which is in turn a port of [the original Potrace][potrace] — a tool for tracing bitmaps.
 
 ![Node.js CI](https://github.com/tooolbox/node-potrace/workflows/Node.js%20CI/badge.svg)
 
