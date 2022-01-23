@@ -1,4 +1,4 @@
-export interface Bitmap {
+export declare class Bitmap {
   Histogram: any;
   width: number;
   height: number;
@@ -12,7 +12,7 @@ export interface Bitmap {
   histogram(): Histogram;
 }
 
-export interface Curve {
+export declare class Curve {
   n: number;
   tag: Array;
   c: Array;
@@ -23,14 +23,14 @@ export interface Curve {
   beta: Array;
 }
 
-export interface Histogram {
+export declare class Histogram {
   COLOR_DEPTH: number;
   COLOR_RANGE_END: number;
   data: any;
   pixels: number;
-  _sortedIndexes: any;
-  _cachedStats: any;
-  _lookupTableH: any;
+  private _sortedIndexes: any;
+  private _cachedStats: any;
+  private _lookupTableH: any;
   MODE_LUMINANCE: string;
   MODE_R: string;
   MODE_G: string;
@@ -38,11 +38,13 @@ export interface Histogram {
   index(x: number, y: number): void;
   normalizeMinMax(levelMin: number, levelMax: number): Array<number>;
   Histogram(imageSource: number | Bitmap | Jimp, mode: string): void;
-  _createArray(imageSize: number): Uint8Array | Uint16Array | Uint32Array;
-  _collectValuesJimp(source: Jimp, mode: string): void;
-  _collectValuesBitmap(source: Bitmap): void;
-  _getSortedIndexes(refresh: any): Array<any>;
-  _thresholdingBuildLookupTable(): Float64Array;
+  private _createArray(
+    imageSize: number
+  ): Uint8Array | Uint16Array | Uint32Array;
+  private _collectValuesJimp(source: Jimp, mode: string): void;
+  private _collectValuesBitmap(source: Bitmap): void;
+  private _getSortedIndexes(refresh: any): Array<any>;
+  private _thresholdingBuildLookupTable(): Float64Array;
   multiLevelThresholding(
     amount: number,
     levelMin: number,
@@ -57,7 +59,7 @@ export interface Histogram {
   getStats(levelMin: number, levelMax: number): any;
 }
 
-export interface Opti {
+export declare class Opti {
   pen: number;
   c: Array<Point>;
   t: number;
@@ -65,7 +67,7 @@ export interface Opti {
   alpha: number;
 }
 
-export interface Path {
+export declare class Path {
   area: number;
   len: number;
   curve: any;
@@ -76,57 +78,28 @@ export interface Path {
   maxY: number;
 }
 
-export interface Point {
+export declare class Point {
   x: number;
   y: number;
   copy(): Point;
 }
 
-export interface Quad {
+export declare class Quad {
   data: Array<number>;
   at(x: number, y: number): Array<number>;
 }
 
-export interface Sum {
+export declare class Sum {
   x: number;
   y: number;
   xy: number;
   x2: number;
   y2: number;
 }
-
-export interface Potrace {
-  _luminanceData: any;
-  _pathList: Array<any>;
-  _imageLoadingIdentifier: any;
-  _imageLoaded: any;
-  _processed: any;
-  _params: any;
-  COLOR_AUTO: string;
-  COLOR_TRANSPARENT: string;
-  THRESHOLD_AUTO: number;
-  TURNPOLICY_BLACK: string;
-  TURNPOLICY_WHITE: string;
-  TURNPOLICY_LEFT: string;
-  TURNPOLICY_RIGHT: string;
-  TURNPOLICY_MINORITY: string;
-  TURNPOLICY_MAJORITY: string;
-  SUPPORTED_TURNPOLICY_VALUES: Array<string>;
-  _bmToPathlist(): void;
-  _processPath(): void;
-  _validateParameters(params: any): void;
-  _processLoadedImage(image: any): void;
-  loadImage(target: string | Buffer | Jimp, callback: Function): void;
-  setParameters(newParams: any): void;
-  getPathTag(fillColor: string, scale: number): string;
-  getSymbol(id: string): string;
-  getSVG(): string;
-}
-
-export interface Posterizer {
-  _potrace: Potrace;
-  _calculatedThreshold: any;
-  _params: any;
+export declare class Posterizer {
+  private _potrace: Potrace;
+  private _calculatedThreshold: any;
+  private _params: any;
   STEPS_AUTO: number;
   FILL_SPREAD: string;
   FILL_DOMINANT: string;
@@ -134,22 +107,22 @@ export interface Posterizer {
   FILL_MEAN: string;
   RANGES_AUTO: string;
   RANGES_EQUAL: string;
-  _addExtraColorStop(ranges: any): any;
-  _calcColorIntensity(colorStops: Array<number>): any;
-  _getImageHistogram(): Histogram;
-  _getRanges(): any;
-  _getRangesAuto(): any;
-  _getRangesEquallyDistributed(): any;
-  _paramSteps(count: boolean): number | Array<number>;
-  _paramThreshold(): number;
-  _pathTags(noFillColor: boolean): Array<string>;
+  private _addExtraColorStop(ranges: any): any;
+  private _calcColorIntensity(colorStops: Array<number>): any;
+  private _getImageHistogram(): Histogram;
+  private _getRanges(): any;
+  private _getRangesAuto(): any;
+  private _getRangesEquallyDistributed(): any;
+  private _paramSteps(count: boolean): number | Array<number>;
+  private _paramThreshold(): number;
+  private _pathTags(noFillColor: boolean): Array<string>;
   loadImage(target: string | Buffer | Jimp, callback: Function): void;
   setParameters(params: any): void;
   getSymbol(id: string): string;
   getSVG(): string;
 }
 
-export interface utils {
+export declare class utils {
   getAttrRegexp(attrName: string): string;
   setHtmlAttr(html: string, attrName: string, value: string): string;
   fixed(number: number): number;
@@ -175,9 +148,60 @@ export interface utils {
   tangent(p0: any, p1: any, p2: any, p3: any, q0: any, q1: any): number;
 }
 
-export default class {
-  trace(file: string | Buffer | Jimp, options: any, cb: Function): void;
-  posterize(file: string | Buffer | Jimp, options: any, cb: Function): void;
-  Potrace: Potrace;
-  Posterizer: Posterizer;
+export declare class Potrace {
+  private _luminanceData: any;
+  private _pathList: Array<any>;
+  private _imageLoadingIdentifier: any;
+  private _imageLoaded: any;
+  private _processed: any;
+  private _params: any;
+  COLOR_AUTO: string;
+  COLOR_TRANSPARENT: string;
+  THRESHOLD_AUTO: number;
+  TURNPOLICY_BLACK: string;
+  TURNPOLICY_WHITE: string;
+  TURNPOLICY_LEFT: string;
+  TURNPOLICY_RIGHT: string;
+  TURNPOLICY_MINORITY: string;
+  TURNPOLICY_MAJORITY: string;
+  SUPPORTED_TURNPOLICY_VALUES: Array<string>;
+  constructor(options: any): void;
+  private _bmToPathlist(): void;
+  private _processPath(): void;
+  private _validateParameters(params: any): void;
+  private _processLoadedImage(image: any): void;
+  loadImage(target: string | Buffer | Jimp, callback: Function): void;
+  setParameters(newParams: any): void;
+  getPathTag(fillColor: string, scale: number): string;
+  getSymbol(id: string): string;
+  getSVG(): string;
 }
+
+declare function trace(
+  file: string | Buffer | Jimp,
+  options: any,
+  cb?: (err: Error | null, svg: string, instance?: Potrace) => void
+): void;
+declare function trace(
+  file: string | Buffer | Jimp,
+  cb?: (err: Error | null, svg: string, instance?: Potrace) => void
+): void;
+
+declare function posterize(
+  file: string | Buffer | Jimp,
+  options: any,
+  cb?: (err: Error | null, svg: string, instance?: Potrace) => void
+): void;
+declare function posterize(
+  file: string | Buffer | Jimp,
+  cb?: (err: Error | null, svg: string, instance?: Potrace) => void
+): void;
+
+declare const lib: {
+  trace: typeof trace;
+  posterize: typeof posterize;
+  Potrace: typeof Potrace;
+  Posterizer: typeof Posterizer;
+};
+
+export default lib;
